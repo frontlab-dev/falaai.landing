@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { CreditCard, Building2, ShoppingBag, Handshake } from "lucide-react";
-import { useAnimation } from "./AnimationContext";
+import { useAnimation } from "../hooks/useAnimation";
 
 const models = [
   {

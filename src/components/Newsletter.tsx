@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { toast } from "sonner@2.0.3";
 import { Mail, CheckCircle2 } from "lucide-react";
-import { useAnimation } from "./AnimationContext";
+import { useAnimation } from "../hooks/useAnimation";
 
 export function Newsletter() {
   const { animationsEnabled } = useAnimation();

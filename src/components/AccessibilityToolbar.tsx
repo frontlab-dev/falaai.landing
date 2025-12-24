@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Eye, EyeOff, Type, Plus, Minus, RotateCcw, X, Hand, Scan } from 'lucide-react';
-import { useAccessibility } from './AccessibilityContext';
-import { useAnimation } from './AnimationContext';
+import { useAccessibility } from '../hooks/useAccessibility';
+import { useAnimation } from '../hooks/useAnimation';
 
 export function AccessibilityToolbar() {
   const [isOpen, setIsOpen] = useState(false);

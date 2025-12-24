@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Grid3x3, Users2, WifiOff, Heart } from "lucide-react";
-import { useAnimation } from "./AnimationContext";
+import { useAnimation } from "../hooks/useAnimation";
 
 const steps = [
   {

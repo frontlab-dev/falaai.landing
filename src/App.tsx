@@ -1,4 +1,3 @@
-import { Hero } from "./components/Hero";
 import { About } from "./components/About";
 import { HowItWorks } from "./components/HowItWorks";
 import { Mascot } from "./components/Mascot";
@@ -6,12 +5,8 @@ import { Team } from "./components/Team";
 import { Monetization } from "./components/Monetization";
 import { Benefits } from "./components/Benefits";
 import { InvestorCTA } from "./components/InvestorCTA";
-import { ContactForm } from "./components/ContactForm";
 import { Footer } from "./components/Footer";
 import { Toaster } from "./components/ui/sonner";
-import { Header } from "./components/Header";
-import { AnimationProvider } from "./components/AnimationContext";
-import { AccessibilityProvider } from "./components/AccessibilityContext";
 import { AnimationToggle } from "./components/AnimationToggle";
 import { AccessibilityToolbar } from "./components/AccessibilityToolbar";
 import { SkipToContent } from "./components/SkipToContent";
@@ -28,7 +23,10 @@ import { CookieConsent } from "./components/CookieConsent";
 import { FaceNavigation } from "./components/FaceNavigation";
 import { useState } from "react";
 import VLibras from '@djpfs/react-vlibras';
-import { useAccessibility } from './components/AccessibilityContext';
+import { AnimationProvider } from "./contexts/AnimationContext";
+import { AccessibilityProvider } from "./contexts/AccessibilityContext";
+import { useAccessibility } from './hooks/useAccessibility';
+import { HeroContainer, ContactFormContainer, HeaderContainer } from "./containers";
 
 function AppContent() {
   const [isLoading, setIsLoading] = useState(true);
@@ -47,10 +45,10 @@ function AppContent() {
         <AccessibilityToolbar />
         <FaceNavigation />
         <AnimationToggle />
-        <Header />
+        <HeaderContainer />
         
         <main id="main-content">
-          <Hero />
+          <HeroContainer />
           <About />
           <Statistics />
           <HowItWorks />
@@ -63,7 +61,7 @@ function AppContent() {
           <PressPartners />
           <InvestorCTA />
           <Newsletter />
-          <ContactForm />
+          <ContactFormContainer />
         </main>
         
         <Footer />

@@ -1,7 +1,7 @@
 import { motion, useInView } from "motion/react";
 import { useRef, useState, useEffect } from "react";
 import { Users, MessageSquare, Heart, TrendingUp } from "lucide-react";
-import { useAnimation } from "./AnimationContext";
+import { useAnimation } from "../hooks/useAnimation";
 
 interface StatProps {
   icon: React.ReactNode;

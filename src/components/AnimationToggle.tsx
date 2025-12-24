@@ -1,5 +1,5 @@
 import { Pause, Play } from "lucide-react";
-import { useAnimation } from "./AnimationContext";
+import { useAnimation } from "../hooks/useAnimation";
 
 export function AnimationToggle() {
   const { animationsEnabled, toggleAnimations } = useAnimation();

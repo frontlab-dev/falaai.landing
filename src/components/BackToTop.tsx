@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ArrowUp } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { useAnimation } from "./AnimationContext";
+import { useAnimation } from "../hooks/useAnimation";
 
 export function BackToTop() {
   const { animationsEnabled } = useAnimation();

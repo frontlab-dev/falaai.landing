@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { MessageSquare, PenTool, Users2, Sparkles, WifiOff, Smile } from "lucide-react";
-import { useAnimation } from "./AnimationContext";
+import { useAnimation } from "../hooks/useAnimation";
 
 const benefits = [
   {

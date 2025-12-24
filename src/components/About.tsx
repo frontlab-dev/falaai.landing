@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Users, Shield } from "lucide-react";
-import { useAnimation } from "./AnimationContext";
+import { useAnimation } from "../hooks/useAnimation";
 
 export function About() {
   const { animationsEnabled } = useAnimation();

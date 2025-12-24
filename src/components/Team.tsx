@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Crown, Package, DollarSign, Code2 } from "lucide-react";
-import { useAnimation } from "./AnimationContext";
+import { useAnimation } from "../hooks/useAnimation";
 
 const teamMembers = [
   {

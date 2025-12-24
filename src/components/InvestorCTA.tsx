@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Button } from "./ui/button";
 import { TrendingUp, Mail } from "lucide-react";
-import { useAnimation } from "./AnimationContext";
+import { useAnimation } from "../hooks/useAnimation";
 
 export function InvestorCTA() {
   const { animationsEnabled } = useAnimation();

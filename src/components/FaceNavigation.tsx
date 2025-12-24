@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { useAccessibility } from './AccessibilityContext';
+import { useAccessibility } from '../hooks/useAccessibility';
 import { motion, AnimatePresence } from 'motion/react';
 import { Camera, CameraOff, Scan, AlertCircle, Info, Shield, MousePointer } from 'lucide-react';
 import * as faceapi from 'face-api.js';

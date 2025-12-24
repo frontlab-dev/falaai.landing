@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useAnimation } from "./AnimationContext";
-import { useAccessibility } from "./AccessibilityContext";
+import { useAnimation } from "../hooks/useAnimation";
+import { useAccessibility } from "../hooks/useAccessibility";
 import { motion, AnimatePresence } from "motion/react";
 import { CheckCircle2, Eye } from "lucide-react";
 

@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import mascotIcon from "figma:asset/09f4aa9565ae6cdcbfe82028f2acb821ea0180ab.png";
-import { useAnimation } from "./AnimationContext";
+import { useAnimation } from "../hooks/useAnimation";
 
 export function Mascot() {
   const { animationsEnabled } = useAnimation();

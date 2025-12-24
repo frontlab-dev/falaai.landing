@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Cookie, X } from "lucide-react";
-import { useAnimation } from "./AnimationContext";
+import { useAnimation } from "../hooks/useAnimation";
 
 export function CookieConsent() {
   const { animationsEnabled } = useAnimation();

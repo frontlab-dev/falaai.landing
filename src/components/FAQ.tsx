@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { useAnimation } from "./AnimationContext";
+import { useAnimation } from "../hooks/useAnimation";
 import {
   Accordion,
   AccordionContent,
