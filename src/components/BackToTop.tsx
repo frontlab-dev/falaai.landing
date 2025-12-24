@@ -36,7 +36,7 @@ export function BackToTop() {
           exit={animationsEnabled ? { opacity: 0, scale: 0.8 } : { opacity: 1, scale: 1 }}
           transition={animationsEnabled ? { duration: 0.2 } : { duration: 0 }}
           onClick={scrollToTop}
-          className="fixed bottom-24 left-6 z-[100000] bg-[#7468F4] hover:bg-[#172252] text-white p-4 rounded-full shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-[#50B1CF] focus:ring-offset-2"
+          className="fixed bottom-24 left-6 z-[100000] bg-[#7468F4] hover:bg-[#172252] text-white p-4 rounded-full shadow-lg transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-4 focus:ring-[#50B1CF] focus:ring-offset-2"
           aria-label="Voltar ao topo da página"
           title="Voltar ao topo"
         >

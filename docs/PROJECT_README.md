@@ -12,8 +12,11 @@ O Fala.AI é uma plataforma de comunicação assistiva que utiliza inteligência
 
 - Node.js 18+ e npm
 - Git
+- Docker e Docker Compose (opcional, para produção)
 
 ### Instalação
+
+#### Desenvolvimento Local
 
 ```bash
 # Clone o repositório
@@ -28,6 +31,26 @@ npm run dev
 # Build para produção
 npm run build
 ```
+
+#### Docker (Produção)
+
+```bash
+# Construir e executar com Docker Compose
+docker-compose -f docker/docker-compose.yml up --build
+
+# Executar em background
+docker-compose -f docker/docker-compose.yml up -d
+
+# Parar containers
+docker-compose -f docker/docker-compose.yml down
+
+# Ver logs
+docker-compose -f docker/docker-compose.yml logs -f
+```
+
+A aplicação estará disponível em `http://localhost:80`
+
+Para mais detalhes sobre deployment, consulte [DEPLOYMENT.md](./DEPLOYMENT.md).
 
 ## 🛠️ Tecnologias
 
@@ -120,6 +143,7 @@ Toda a documentação está na pasta [`docs/`](./README.md):
 - **[ACCESSIBILITY.md](./ACCESSIBILITY.md)** - Guia de acessibilidade
 - **[Guidelines.md](./Guidelines.md)** - Diretrizes do projeto
 - **[MIGRATION.md](./MIGRATION.md)** - Guia de migração
+- **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Guia de deployment e Docker
 
 ## 🔧 Scripts Disponíveis
 
@@ -133,6 +157,31 @@ npm run build        # Build para produção
 # Análise
 npm run preview      # Preview do build de produção
 ```
+
+## 🐳 Docker
+
+O projeto inclui configuração Docker completa para deployment em produção:
+
+### Estrutura Docker
+
+```
+docker/
+├── Dockerfile           # Multi-stage build (Node + Nginx)
+├── docker-compose.yml   # Orquestração de containers
+├── nginx.conf          # Configuração do Nginx
+└── .dockerignore       # Arquivos ignorados no build
+```
+
+### Características
+
+- **Multi-stage build**: Otimizado para produção
+- **Nginx Alpine**: Imagem leve e segura
+- **SPA Support**: Configurado para Single Page Applications
+- **Gzip Compression**: Compressão automática de assets
+- **Cache Headers**: Cache otimizado para assets estáticos
+- **Security Headers**: Headers de segurança configurados
+
+Para mais detalhes, consulte [DEPLOYMENT.md](./DEPLOYMENT.md).
 
 ## 📦 Dependências Principais
 

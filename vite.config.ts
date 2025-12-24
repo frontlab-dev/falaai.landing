@@ -5,6 +5,31 @@
 
   export default defineConfig({
     plugins: [react()],
+    publicDir: 'public',
+    build: {
+      target: 'esnext',
+      outDir: 'build',
+      cssCodeSplit: true,
+      sourcemap: false,
+      minify: 'esbuild',
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            // Separar bibliotecas grandes em chunks próprios
+            'face-api': ['face-api.js'],
+            'vlibras': ['@djpfs/react-vlibras'],
+            'motion': ['motion/react'],
+            'radix-ui': [
+              '@radix-ui/react-accordion',
+              '@radix-ui/react-label',
+              '@radix-ui/react-select',
+              '@radix-ui/react-slot'
+            ],
+          },
+        },
+      },
+      chunkSizeWarningLimit: 1000,
+    },
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       alias: {
@@ -17,8 +42,8 @@
         'next-themes@0.4.6': 'next-themes',
         'lucide-react@0.487.0': 'lucide-react',
         'input-otp@1.4.2': 'input-otp',
-        'figma:asset/a5e1675c7d639d7b08f95b33882e1535d866ec7c.png': path.resolve(__dirname, './src/assets/a5e1675c7d639d7b08f95b33882e1535d866ec7c.png'),
-        'figma:asset/09f4aa9565ae6cdcbfe82028f2acb821ea0180ab.png': path.resolve(__dirname, './src/assets/09f4aa9565ae6cdcbfe82028f2acb821ea0180ab.png'),
+        'figma:asset/a5e1675c7d639d7b08f95b33882e1535d866ec7c.png': path.resolve(__dirname, './src/assets/a5e1675c7d639d7b08f95b33882e1535d866ec7c.webp'),
+        'figma:asset/09f4aa9565ae6cdcbfe82028f2acb821ea0180ab.png': path.resolve(__dirname, './src/assets/09f4aa9565ae6cdcbfe82028f2acb821ea0180ab.webp'),
         'embla-carousel-react@8.6.0': 'embla-carousel-react',
         'cmdk@1.1.1': 'cmdk',
         'class-variance-authority@0.7.1': 'class-variance-authority',
@@ -50,10 +75,6 @@
         '@radix-ui/react-accordion@1.2.3': '@radix-ui/react-accordion',
         '@': path.resolve(__dirname, './src'),
       },
-    },
-    build: {
-      target: 'esnext',
-      outDir: 'build',
     },
     server: {
       port: 3000,

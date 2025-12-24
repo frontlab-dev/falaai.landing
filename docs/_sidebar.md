@@ -8,6 +8,7 @@
   - [Diretrizes](Guidelines.md)
 
 - **🔧 Guias Técnicos**
+  - [Deployment](DEPLOYMENT.md)
   - [Migração](MIGRATION.md)
   - [Limpeza](CLEANUP.md)
   - [Resumo](SUMMARY.md)

@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  falaai-landing:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: falaai-landing
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    networks:
+      - falaai-network
+
+networks:
+  falaai-network:
+    driver: bridge
+

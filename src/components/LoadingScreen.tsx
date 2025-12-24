@@ -45,6 +45,9 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
             src={logo}
             alt="Fala.AI"
             className="h-32 w-auto mb-8 mx-auto"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
             animate={animationsEnabled ? { 
               y: [0, -10, 0],
               scale: [1, 1.05, 1]

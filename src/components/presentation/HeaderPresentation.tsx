@@ -8,7 +8,7 @@ const navLinks = [
   { name: "Como Funciona", href: "#como-funciona" },
   { name: "Benefícios", href: "#beneficios" },
   { name: "Equipe", href: "#equipe" },
-  { name: "Depoimentos", href: "#depoimentos" },
+  // { name: "Depoimentos", href: "#depoimentos" },
   { name: "FAQ", href: "#faq" },
   { name: "Contato", href: "#contato" },
 ];
@@ -44,7 +44,7 @@ export function HeaderPresentation({
           {/* Logo */}
           <motion.a
             href="#hero"
-            className="flex items-center focus:outline-none focus:ring-2 focus:ring-[#50B1CF] focus:ring-offset-2 rounded-lg px-2 py-1"
+            className="flex items-center cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#50B1CF] focus:ring-offset-2 rounded-lg px-2 py-1"
             initial={animationsEnabled ? { opacity: 0, x: -20 } : { opacity: 1, x: 0 }}
             animate={{ opacity: 1, x: 0 }}
             transition={animationsEnabled ? { duration: 0.5 } : { duration: 0 }}
@@ -54,7 +54,14 @@ export function HeaderPresentation({
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            <img src={logo} alt="Fala.AI" className="h-16 w-auto" />
+            <img 
+              src={logo} 
+              alt="Fala.AI" 
+              className="h-16 w-auto" 
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
           </motion.a>
 
           {/* Desktop Navigation */}
@@ -63,7 +70,7 @@ export function HeaderPresentation({
               <motion.a
                 key={link.name}
                 href={link.href}
-                className="text-[#1A1A1A] hover:text-[#50B1CF] transition-colors focus:outline-none focus:ring-2 focus:ring-[#50B1CF] focus:ring-offset-2 rounded-lg px-3 py-2"
+                className="text-[#1A1A1A] hover:text-[#50B1CF] transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#50B1CF] focus:ring-offset-2 rounded-lg px-3 py-2"
                 initial={animationsEnabled ? { opacity: 0, y: -10 } : { opacity: 1, y: 0 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={animationsEnabled ? { duration: 0.5, delay: index * 0.1 } : { duration: 0 }}
@@ -92,7 +99,7 @@ export function HeaderPresentation({
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-[#50B1CF] focus:ring-offset-2 rounded-lg"
+            className="md:hidden p-2 text-[#1A1A1A] cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#50B1CF] focus:ring-offset-2 rounded-lg"
             onClick={onToggleMobileMenu}
             aria-label={isMobileMenuOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
             aria-expanded={isMobileMenuOpen}
@@ -123,7 +130,7 @@ export function HeaderPresentation({
                   <a
                     key={link.name}
                     href={link.href}
-                    className="text-[#1A1A1A] hover:text-[#50B1CF] transition-colors py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#50B1CF] focus:bg-[#FAFAFA]"
+                    className="text-[#1A1A1A] hover:text-[#50B1CF] transition-colors cursor-pointer py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#50B1CF] focus:bg-[#FAFAFA]"
                     onClick={(e) => onNavClick(e, link.href)}
                   >
                     {link.name}

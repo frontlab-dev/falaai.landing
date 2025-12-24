@@ -12,21 +12,20 @@ import { AccessibilityToolbar } from "./components/AccessibilityToolbar";
 import { SkipToContent } from "./components/SkipToContent";
 import { AccessibilityStatus } from "./components/AccessibilityStatus";
 import { BackToTop } from "./components/BackToTop";
-import { Statistics } from "./components/Statistics";
-import { Testimonials } from "./components/Testimonials";
 import { FAQ } from "./components/FAQ";
-import { PressPartners } from "./components/PressPartners";
 import { SEOHead } from "./components/SEOHead";
 import { Newsletter } from "./components/Newsletter";
 import { LoadingScreen } from "./components/LoadingScreen";
 import { CookieConsent } from "./components/CookieConsent";
-import { FaceNavigation } from "./components/FaceNavigation";
-import { useState } from "react";
-import VLibras from '@djpfs/react-vlibras';
+import { useState, lazy, Suspense } from "react";
 import { AnimationProvider } from "./contexts/AnimationContext";
 import { AccessibilityProvider } from "./contexts/AccessibilityContext";
 import { useAccessibility } from './hooks/useAccessibility';
 import { HeroContainer, ContactFormContainer, HeaderContainer } from "./containers";
+
+// Lazy load componentes pesados
+const FaceNavigation = lazy(() => import("./components/FaceNavigation").then(module => ({ default: module.FaceNavigation })));
+const VLibras = lazy(() => import('@djpfs/react-vlibras').then(module => ({ default: module.default })));
 
 function AppContent() {
   const [isLoading, setIsLoading] = useState(true);
@@ -43,22 +42,18 @@ function AppContent() {
         <SkipToContent />
         <AccessibilityStatus />
         <AccessibilityToolbar />
-        <FaceNavigation />
         <AnimationToggle />
         <HeaderContainer />
         
         <main id="main-content">
           <HeroContainer />
           <About />
-          <Statistics />
           <HowItWorks />
           <Mascot />
           <Benefits />
-          <Testimonials />
           <Team />
           <Monetization />
           <FAQ />
-          <PressPartners />
           <InvestorCTA />
           <Newsletter />
           <ContactFormContainer />
@@ -68,7 +63,14 @@ function AppContent() {
         <BackToTop />
         <CookieConsent />
         <Toaster />
-        {librasEnabled && <VLibras forceOnload />}
+        {librasEnabled && (
+          <Suspense fallback={null}>
+            <VLibras forceOnload />
+          </Suspense>
+        )}
+        <Suspense fallback={null}>
+          <FaceNavigation />
+        </Suspense>
       </div>
     </>
   );

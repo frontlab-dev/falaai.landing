@@ -15,6 +15,8 @@ export function Footer() {
               src={logoFull}
               alt="Fala.AI"
               className="h-24 mb-6"
+              loading="lazy"
+              decoding="async"
             />
             <p className="text-white/90 leading-relaxed text-lg">
               Tecnologia assistiva que transforma vidas através da comunicação acessível.
@@ -22,13 +24,13 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-6 text-xl font-bold">Contato</h4>
+            <h4 className="mb-6 text-xl font-bold">Links</h4>
             <nav aria-label="Links do rodapé">
               <ul className="space-y-3 text-lg">
                 <li>
                   <a 
                     href="#sobre" 
-                    className="text-white/80 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#418BFF] rounded px-1 py-0.5"
+                    className="text-white/80 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#418BFF] rounded px-1 py-0.5"
                     onClick={(e) => {
                       e.preventDefault();
                       scrollToSection("#sobre");
@@ -40,7 +42,7 @@ export function Footer() {
                 <li>
                   <a 
                     href="#contato" 
-                    className="text-white/80 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#418BFF] rounded px-1 py-0.5"
+                    className="text-white/80 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#418BFF] rounded px-1 py-0.5"
                     onClick={(e) => {
                       e.preventDefault();
                       scrollToSection("#contato");
@@ -52,7 +54,7 @@ export function Footer() {
                 <li>
                   <a 
                     href="#" 
-                    className="text-white/80 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#418BFF] rounded px-1 py-0.5"
+                    className="text-white/80 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#418BFF] rounded px-1 py-0.5"
                   >
                     Privacidade
                   </a>
@@ -60,7 +62,7 @@ export function Footer() {
                 <li>
                   <a 
                     href="#" 
-                    className="text-white/80 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#418BFF] rounded px-1 py-0.5"
+                    className="text-white/80 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#418BFF] rounded px-1 py-0.5"
                   >
                     Termos de Uso
                   </a>
@@ -69,12 +71,12 @@ export function Footer() {
             </nav>
           </div>
 
-          <div>
+          {/* <div>
             <h4 className="mb-6 text-xl">Contato</h4>
             <p className="text-white/90 leading-relaxed mb-4 text-lg">
               <a 
-                href="mailto:contato@fala.ai" 
-                className="hover:underline focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#418BFF] rounded px-1 py-0.5"
+                href="mailto:contato@fala.ai"
+                className="hover:underline cursor-pointer focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#418BFF] rounded px-1 py-0.5"
               >
                 contato@fala.ai
               </a>
@@ -82,7 +84,7 @@ export function Footer() {
             <p className="text-white/90 leading-relaxed text-lg">
               Transformando comunicação em liberdade
             </p>
-          </div>
+          </div> */}
         </div>
 
         <div className="border-t border-white/20 pt-8 text-center">

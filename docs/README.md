@@ -18,6 +18,7 @@ Para começar a trabalhar no projeto, consulte a [Documentação Principal do Pr
 - **[Diretrizes](Guidelines.md)** - Diretrizes e padrões do projeto
 
 ### 🔧 Guias Técnicos
+- **[Deployment](DEPLOYMENT.md)** - Guia de deployment e Docker
 - **[Migração](MIGRATION.md)** - Guia de migração e atualizações
 - **[Resumo](SUMMARY.md)** - Resumo da reorganização do projeto
 - **[Limpeza](CLEANUP.md)** - Documentação de limpeza e otimização

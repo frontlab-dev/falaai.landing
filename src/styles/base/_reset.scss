@@ -22,3 +22,30 @@
   }
 }
 
+// Cursor pointer para elementos clicáveis
+button:not(:disabled),
+a[href]:not([disabled]),
+[role="button"]:not([disabled]),
+[onclick]:not([disabled]),
+input[type="button"]:not(:disabled),
+input[type="submit"]:not(:disabled),
+input[type="reset"]:not(:disabled),
+select:not(:disabled),
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+// Cursor not-allowed para elementos desabilitados
+button:disabled,
+input:disabled,
+select:disabled,
+[disabled],
+.cursor-not-allowed {
+  cursor: not-allowed !important;
+}
+
+// Garantir que elementos com classe cursor-pointer funcionem
+.cursor-pointer {
+  cursor: pointer !important;
+}
+

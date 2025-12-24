@@ -67,7 +67,7 @@ export function CookieConsent() {
             </div>
             <button
               onClick={handleClose}
-              className="text-[#5A5A5A] hover:text-[#1A1A1A] transition-colors p-1 flex-shrink-0"
+              className="text-[#5A5A5A] hover:text-[#1A1A1A] transition-colors cursor-pointer p-1 flex-shrink-0"
               aria-label="Fechar banner de cookies"
             >
               <X className="w-5 h-5" />
@@ -92,7 +92,7 @@ export function CookieConsent() {
 
           <p className="text-xs text-[#5A5A5A] mt-4 text-center">
             Ao continuar navegando, você concorda com nossa{" "}
-            <a href="#" className="text-[#0D5FD9] hover:underline">
+            <a href="#" className="text-[#0D5FD9] hover:underline cursor-pointer">
               Política de Privacidade
             </a>
           </p>

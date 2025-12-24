@@ -75,6 +75,9 @@ export function HeroPresentation({ animationsEnabled, onCTAClick }: HeroPresenta
               src={logoOtter}
               alt="Mascote Lontra do Fala.AI - personagem amigável representando a marca"
               className="w-full max-w-lg drop-shadow-2xl"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
               animate={animationsEnabled ? { y: [0, -20, 0] } : { y: 0 }}
               transition={animationsEnabled ? { duration: 4, repeat: Infinity, ease: "easeInOut" } : { duration: 0 }}
             />

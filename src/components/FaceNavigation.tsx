@@ -1,8 +1,16 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { useAccessibility } from '../hooks/useAccessibility';
 import { motion, AnimatePresence } from 'motion/react';
-import { Camera, CameraOff, Scan, AlertCircle, Info, Shield, MousePointer } from 'lucide-react';
-import * as faceapi from 'face-api.js';
+import { Camera, CameraOff, Scan, Info, Shield, MousePointer } from 'lucide-react';
+
+// Lazy load face-api.js apenas quando necessário
+let faceapi: typeof import('face-api.js') | null = null;
+const loadFaceApi = async () => {
+  if (!faceapi) {
+    faceapi = await import('face-api.js');
+  }
+  return faceapi;
+};
 
 type Status = 'idle' | 'loading-models' | 'loading-camera' | 'active' | 'error' | 'permission-denied' | 'not-supported';
 
@@ -12,7 +20,7 @@ export function FaceNavigation() {
   const [status, setStatus] = useState<Status>('idle');
   const [message, setMessage] = useState('');
   const streamRef = useRef<MediaStream | null>(null);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | undefined>(undefined);
   const isRunningRef = useRef(false);
   
   // Baseline para calibração inicial (posição central do rosto)
@@ -29,7 +37,7 @@ export function FaceNavigation() {
     y: window.innerHeight / 2 
   });
   const [clickProgress, setClickProgress] = useState(0);
-  const [showCursor, setShowCursor] = useState(false);
+  const [_showCursor, setShowCursor] = useState(false);
   
   // Detecção de movimento parado para clique
   const lastFacePositionRef = useRef<{ x: number; y: number } | null>(null);
@@ -160,8 +168,8 @@ export function FaceNavigation() {
     }
     
     // Aplicar limites finais (garantir que não ultrapasse os limites da tela)
-    let newX = Math.max(0, Math.min(window.innerWidth, desiredX));
-    let newY = Math.max(0, Math.min(window.innerHeight, desiredY));
+    const newX = Math.max(0, Math.min(window.innerWidth, desiredX));
+    const newY = Math.max(0, Math.min(window.innerHeight, desiredY));
     
     // Verificar novamente se está nas bordas após aplicar limites
     const finalIsAtLeftEdge = newX <= edgeThreshold;
@@ -195,7 +203,9 @@ export function FaceNavigation() {
     } else {
       // Iniciar scroll na primeira direção (prioridade: vertical > horizontal)
       const priorityDirection = scrollDirections.find(d => d === 'up' || d === 'down') || scrollDirections[0];
-      startAutoScroll(priorityDirection);
+      if (priorityDirection) {
+        startAutoScroll(priorityDirection);
+      }
     }
     
     // SEMPRE atualizar posição visual do cursor
@@ -275,7 +285,8 @@ export function FaceNavigation() {
       setStatus('loading-models');
       setMessage('Carregando modelos de detecção facial...');
       
-      await faceapi.nets.tinyFaceDetector.loadFromUri('/models');
+      const faceApiModule = await loadFaceApi();
+      await faceApiModule.nets.tinyFaceDetector.loadFromUri('/models');
       
       return true;
     } catch (error) {
@@ -309,8 +320,8 @@ export function FaceNavigation() {
         return true;
       }
       return false;
-    } catch (error: any) {
-      if (error.name === 'NotAllowedError') {
+    } catch (error: unknown) {
+      if (error instanceof Error && error.name === 'NotAllowedError') {
         setStatus('permission-denied');
         setMessage('Permissão de câmera negada');
       } else {
@@ -352,10 +363,15 @@ export function FaceNavigation() {
       try {
         frameCountRef.current++;
         
+        // Garantir que face-api está carregado
+        if (!faceapi) {
+          await loadFaceApi();
+        }
+        
         // Detectar rosto usando TinyFaceDetector
-        const detection = await faceapi.detectSingleFace(
+        const detection = await faceapi!.detectSingleFace(
           video,
-          new faceapi.TinyFaceDetectorOptions({ 
+          new faceapi!.TinyFaceDetectorOptions({ 
             inputSize: 320, 
             scoreThreshold: 0.5 
           })
@@ -695,13 +711,13 @@ export function FaceNavigation() {
               )}
               <button
                 onClick={start}
-                className="w-full bg-[#50B1CF] hover:bg-[#3a8fa8] text-white py-2 px-4 rounded-lg text-sm"
+                className="w-full bg-[#50B1CF] hover:bg-[#3a8fa8] text-white py-2 px-4 rounded-lg text-sm cursor-pointer"
               >
                 Tentar Novamente
               </button>
               <button
                 onClick={toggleFaceNavigation}
-                className="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 px-4 rounded-lg text-sm"
+                className="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 px-4 rounded-lg text-sm cursor-pointer"
               >
                 Fechar
               </button>

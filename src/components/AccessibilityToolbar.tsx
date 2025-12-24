@@ -16,7 +16,7 @@ export function AccessibilityToolbar() {
         onClick={() => setIsOpen(!isOpen)}
         aria-label={isOpen ? "Fechar ferramentas de acessibilidade" : "Abrir ferramentas de acessibilidade"}
         aria-expanded={isOpen}
-        className="fixed bottom-6 left-6 z-[90000] bg-[#172252] hover:bg-[#0F1533] text-white p-4 rounded-full shadow-lg transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-[#3DD6D0] focus:ring-offset-2"
+        className="fixed bottom-6 left-6 z-[90000] bg-[#172252] hover:bg-[#0F1533] text-white p-4 rounded-full shadow-lg transition-all duration-200 cursor-pointer focus:outline-none focus:ring-4 focus:ring-[#3DD6D0] focus:ring-offset-2"
         title="Ferramentas de Acessibilidade"
       >
         {isOpen ? (
@@ -57,7 +57,7 @@ export function AccessibilityToolbar() {
               </label>
               <button
                 onClick={toggleHighContrast}
-                className={`w-full px-4 py-3 rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-[#3DD6D0] focus:ring-offset-2 ${
+                className={`w-full px-4 py-3 rounded-xl transition-all duration-200 cursor-pointer focus:outline-none focus:ring-4 focus:ring-[#3DD6D0] focus:ring-offset-2 ${
                   highContrast
                     ? 'bg-[#172252] text-white hover:bg-[#0F1533]'
                     : 'bg-[#F5F5F5] text-[#2E2E2E] hover:bg-[#E6E6E6]'
@@ -78,7 +78,7 @@ export function AccessibilityToolbar() {
                 <button
                   onClick={decreaseFontSize}
                   disabled={fontSize <= 80}
-                  className="flex-1 px-4 py-3 bg-[#F5F5F5] hover:bg-[#E6E6E6] disabled:opacity-40 disabled:cursor-not-allowed text-[#2E2E2E] rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-[#3DD6D0] focus:ring-offset-2 flex items-center justify-center gap-2"
+                  className="flex-1 px-4 py-3 bg-[#F5F5F5] hover:bg-[#E6E6E6] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer text-[#2E2E2E] rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-[#3DD6D0] focus:ring-offset-2 flex items-center justify-center gap-2"
                   aria-label="Diminuir fonte"
                 >
                   <Minus className="w-4 h-4" />
@@ -86,7 +86,7 @@ export function AccessibilityToolbar() {
                 </button>
                 <button
                   onClick={resetFontSize}
-                  className="px-4 py-3 bg-[#F5F5F5] hover:bg-[#E6E6E6] text-[#2E2E2E] rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-[#3DD6D0] focus:ring-offset-2"
+                  className="px-4 py-3 bg-[#F5F5F5] hover:bg-[#E6E6E6] cursor-pointer text-[#2E2E2E] rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-[#3DD6D0] focus:ring-offset-2"
                   aria-label="Resetar tamanho da fonte"
                   title="Resetar"
                 >
@@ -95,7 +95,7 @@ export function AccessibilityToolbar() {
                 <button
                   onClick={increaseFontSize}
                   disabled={fontSize >= 150}
-                  className="flex-1 px-4 py-3 bg-[#F5F5F5] hover:bg-[#E6E6E6] disabled:opacity-40 disabled:cursor-not-allowed text-[#2E2E2E] rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-[#3DD6D0] focus:ring-offset-2 flex items-center justify-center gap-2"
+                  className="flex-1 px-4 py-3 bg-[#F5F5F5] hover:bg-[#E6E6E6] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer text-[#2E2E2E] rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-[#3DD6D0] focus:ring-offset-2 flex items-center justify-center gap-2"
                   aria-label="Aumentar fonte"
                 >
                   <Plus className="w-4 h-4" />
@@ -117,7 +117,7 @@ export function AccessibilityToolbar() {
               </label>
               <button
                 onClick={toggleLibras}
-                className={`w-full px-4 py-3 rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-[#3DD6D0] focus:ring-offset-2 ${
+                className={`w-full px-4 py-3 rounded-xl transition-all duration-200 cursor-pointer focus:outline-none focus:ring-4 focus:ring-[#3DD6D0] focus:ring-offset-2 ${
                   librasEnabled
                     ? 'bg-[#7468F4] text-white hover:bg-[#5E52D9]'
                     : 'bg-[#F5F5F5] text-[#2E2E2E] hover:bg-[#E6E6E6]'
@@ -144,7 +144,7 @@ export function AccessibilityToolbar() {
               </label>
               <button
                 onClick={toggleFaceNavigation}
-                className={`w-full px-4 py-3 rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-[#3DD6D0] focus:ring-offset-2 ${
+                className={`w-full px-4 py-3 rounded-xl transition-all duration-200 cursor-pointer focus:outline-none focus:ring-4 focus:ring-[#3DD6D0] focus:ring-offset-2 ${
                   faceNavigationEnabled
                     ? 'bg-[#7468F4] text-white hover:bg-[#5E52D9]'
                     : 'bg-[#F5F5F5] text-[#2E2E2E] hover:bg-[#E6E6E6]'

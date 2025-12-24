@@ -121,7 +121,7 @@ export function FAQ() {
           </p>
           <a
             href="#contato"
-            className="text-[#2A8FA8] hover:underline inline-flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-[#50B1CF] focus:ring-offset-2 rounded-lg px-3 py-2"
+            className="text-[#2A8FA8] hover:underline cursor-pointer inline-flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-[#50B1CF] focus:ring-offset-2 rounded-lg px-3 py-2"
             onClick={(e) => {
               e.preventDefault();
               const element = document.querySelector("#contato");

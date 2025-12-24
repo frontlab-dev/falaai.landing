@@ -4,6 +4,8 @@ Landing page completa e profissional para a startup **Fala.AI**, um aplicativo d
 
 ## 🚀 Início Rápido
 
+### Desenvolvimento Local
+
 ```bash
 # Instalar dependências
 npm install
@@ -14,6 +16,21 @@ npm run dev
 # Build para produção
 npm run build
 ```
+
+### Docker (Produção)
+
+```bash
+# Construir e executar com Docker Compose
+docker-compose -f docker/docker-compose.yml up --build
+
+# Executar em background
+docker-compose -f docker/docker-compose.yml up -d
+
+# Parar containers
+docker-compose -f docker/docker-compose.yml down
+```
+
+A aplicação estará disponível em `http://localhost:80`
 
 ## 📚 Documentação
 
@@ -77,6 +94,8 @@ src/
 - **SCSS/Sass** - Estilização com metodologia BEM
 - **Shadcn/ui** - Componentes UI
 - **Vite** - Build tool
+- **Docker** - Containerização para produção
+- **Nginx** - Servidor web para produção
 
 ## 📄 Licença
 

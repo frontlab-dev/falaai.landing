@@ -29,6 +29,8 @@ export function Mascot() {
                 src={mascotIcon}
                 alt="Mascote Lontra do Fala.AI"
                 className="w-full max-w-md"
+                loading="lazy"
+                decoding="async"
               />
             </motion.div>
           </motion.div>

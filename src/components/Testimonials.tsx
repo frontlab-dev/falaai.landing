@@ -1,7 +1,6 @@
 import { motion } from "motion/react";
 import { Star } from "lucide-react";
 import { useAnimation } from "../hooks/useAnimation";
-import { Card, CardContent } from "./ui/card";
 
 interface Testimonial {
   name: string;

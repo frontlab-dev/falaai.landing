@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { useAnimation } from "../hooks/useAnimation";
 import { useAccessibility } from "../hooks/useAccessibility";
 import { motion, AnimatePresence } from "motion/react";
-import { CheckCircle2, Eye } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 export function AccessibilityStatus() {
   const { animationsEnabled } = useAnimation();
   const { highContrast } = useAccessibility();
   const [showStatus, setShowStatus] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [_prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
 
   useEffect(() => {
