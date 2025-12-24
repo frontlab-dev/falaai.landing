@@ -1,0 +1,11 @@
+// ========================================
+// VLIBRAS CUSTOMIZATION
+// Alto contraste para melhor visibilidade
+// ========================================
+
+.high-contrast [vw-access-button] {
+  border: 3px solid #FFFF00 !important;
+  outline: 2px solid #FFFFFF !important;
+  outline-offset: 2px !important;
+}
+

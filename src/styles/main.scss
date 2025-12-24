@@ -1,0 +1,21 @@
+// ========================================
+// MAIN SCSS FILE
+// Importa todos os arquivos SCSS organizados
+// ========================================
+
+// Base
+@use 'base/variables';
+@use 'base/typography';
+@use 'base/reset';
+
+// Components
+@use 'components/focus';
+@use 'components/high-contrast';
+@use 'components/vlibras';
+
+// Utilities
+@use 'utilities/sr-only';
+
+// Google Fonts (deve vir depois dos @use)
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap');
+

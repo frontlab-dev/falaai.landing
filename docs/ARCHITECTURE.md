@@ -13,6 +13,11 @@ src/
 ├── containers/          # Componentes container (lógica de negócio)
 ├── contexts/            # Contexts do React
 ├── hooks/               # Hooks customizados reutilizáveis
+├── styles/              # Estilos SCSS organizados com BEM
+│   ├── base/            # Estilos base (variáveis, tipografia, reset)
+│   ├── components/      # Estilos de componentes
+│   ├── utilities/       # Utilitários
+│   └── main.scss        # Arquivo principal
 └── ...
 ```
 
@@ -198,10 +203,58 @@ Para migrar um componente existente para o padrão Container/Presentation:
 4. Criar container que conecta hook e apresentação
 5. Atualizar imports no App.tsx
 
+## 🎨 Arquitetura de Estilos
+
+O projeto utiliza uma abordagem híbrida para estilização:
+
+### Tailwind CSS v4
+- **Uso**: Estilização utilitária e rápida
+- **Aplicação**: Classes utilitárias diretamente nos componentes
+- **Vantagens**: Desenvolvimento rápido, consistência visual
+
+### SCSS com BEM
+- **Uso**: Componentes complexos e estilos específicos
+- **Estrutura**: Organizada em módulos (`base/`, `components/`, `utilities/`)
+- **Metodologia**: BEM (Block Element Modifier) para nomenclatura
+- **Vantagens**: Organização, manutenibilidade, reutilização
+
+### Estrutura de Estilos
+
+```
+src/styles/
+├── main.scss              # Arquivo principal (importa todos os módulos)
+├── base/
+│   ├── _variables.scss    # Variáveis CSS customizadas
+│   ├── _typography.scss   # Estilos de tipografia
+│   └── _reset.scss        # Reset e preferências de movimento
+├── components/
+│   ├── _focus.scss        # Estilos de foco para acessibilidade
+│   ├── _high-contrast.scss # Modo de alto contraste
+│   └── _vlibras.scss      # Customizações do VLibras
+└── utilities/
+    └── _sr-only.scss      # Screen reader only
+```
+
+### Quando Usar Cada Abordagem
+
+**Use Tailwind CSS quando:**
+- Estilização simples e direta
+- Classes utilitárias são suficientes
+- Desenvolvimento rápido é prioridade
+
+**Use SCSS/BEM quando:**
+- Componente complexo com muitos estilos
+- Precisa de organização e manutenibilidade
+- Estilos específicos que não se encaixam no Tailwind
+
+Consulte [STYLES.md](./STYLES.md) para mais detalhes sobre a estrutura de estilos.
+
 ## 📖 Referências
 
 - [Container/Presentation Pattern](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
 - [React Hooks](https://react.dev/reference/react)
 - [React Context](https://react.dev/reference/react/createContext)
+- [BEM Methodology](http://getbem.com/)
+- [SCSS Documentation](https://sass-lang.com/documentation)
 
 

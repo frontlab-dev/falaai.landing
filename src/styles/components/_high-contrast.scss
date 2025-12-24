@@ -1,0 +1,276 @@
+// ========================================
+// HIGH CONTRAST MODE - WCAG AAA
+// Modo de alto contraste usando BEM
+// ========================================
+
+.high-contrast {
+  // Background colors
+  --background: #000000;
+  --foreground: #FFFFFF;
+  
+  // Card and surfaces
+  --card: #000000;
+  --card-foreground: #FFFFFF;
+  
+  // Primary colors with maximum contrast
+  --primary: #FFFFFF;
+  --primary-foreground: #000000;
+  
+  // Secondary colors
+  --secondary: #FFFF00; // Yellow for high contrast
+  --secondary-foreground: #000000;
+  
+  // Borders with high visibility
+  --border: #FFFFFF;
+  --fala-border: #FFFFFF;
+  
+  // Text colors - Maximum contrast
+  --fala-text-primary: #FFFFFF;
+  --fala-text-secondary: #FFFFFF;
+  --fala-text-tertiary: #FFFFFF;
+  
+  // Links and interactive elements
+  --ring: #FFFF00;
+
+  // High contrast backgrounds
+  body,
+  main,
+  section {
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+  }
+
+  // High contrast cards and surfaces
+  [class*="bg-white"],
+  [class*="bg-\\[#FFFFFF\\]"],
+  [class*="bg-\\[#F5F5F5\\]"],
+  [class*="bg-gray"] {
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+    border: 2px solid #FFFFFF !important;
+  }
+
+  // High contrast text colors
+  [class*="text-\\[#"],
+  [class*="text-gray"],
+  p,
+  span,
+  li,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #FFFFFF !important;
+  }
+
+  // High contrast buttons - Primary
+  button[class*="bg-\\[#"],
+  a[class*="bg-\\[#"] {
+    background-color: #FFFF00 !important;
+    color: #000000 !important;
+    border: 3px solid #FFFFFF !important;
+    font-weight: 700 !important;
+
+    &:hover {
+      background-color: #FFFFFF !important;
+      color: #000000 !important;
+      border: 3px solid #FFFF00 !important;
+    }
+  }
+
+  // High contrast outline buttons
+  button[class*="border"],
+  a[class*="border"] {
+    background-color: #000000 !important;
+    color: #FFFF00 !important;
+    border: 3px solid #FFFF00 !important;
+    font-weight: 700 !important;
+
+    &:hover {
+      background-color: #FFFF00 !important;
+      color: #000000 !important;
+    }
+  }
+
+  // High contrast form inputs
+  input,
+  textarea,
+  select {
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+    border: 2px solid #FFFFFF !important;
+
+    &::placeholder {
+      color: #CCCCCC !important;
+    }
+
+    &:focus {
+      border-color: #FFFF00 !important;
+      outline: 3px solid #FFFF00 !important;
+      outline-offset: 2px;
+    }
+  }
+
+  // High contrast icons
+  svg {
+    color: #FFFFFF !important;
+    fill: currentColor;
+    stroke: currentColor !important;
+  }
+
+  button svg,
+  a svg {
+    color: inherit !important;
+    fill: currentColor !important;
+    stroke: currentColor !important;
+  }
+
+  // High contrast for yellow buttons - icons should be black
+  button[class*="bg-\\[#"] svg {
+    color: #000000 !important;
+    stroke: #000000 !important;
+  }
+
+  // High contrast for outline buttons - icons should be yellow
+  button[class*="border"] svg {
+    color: #FFFF00 !important;
+    stroke: #FFFF00 !important;
+  }
+
+  // High contrast for navigation links
+  nav a,
+  nav button {
+    color: #FFFF00 !important;
+    font-weight: 700 !important;
+
+    svg {
+      color: #FFFF00 !important;
+      stroke: #FFFF00 !important;
+    }
+  }
+
+  // High contrast for floating buttons (accessibility toolbar)
+  .fixed button {
+    background-color: #FFFF00 !important;
+    color: #000000 !important;
+    border: 3px solid #FFFFFF !important;
+
+    svg {
+      color: #000000 !important;
+      stroke: #000000 !important;
+    }
+
+    &:hover {
+      background-color: #FFFFFF !important;
+      color: #000000 !important;
+      border: 3px solid #FFFF00 !important;
+    }
+  }
+
+  // High contrast for status messages and tooltips
+  [role="status"] {
+    background-color: #000000 !important;
+    color: #FFFF00 !important;
+    border: 3px solid #FFFF00 !important;
+
+    svg {
+      color: #FFFF00 !important;
+      stroke: #FFFF00 !important;
+    }
+
+    p,
+    span {
+      color: #FFFF00 !important;
+    }
+  }
+
+  // High contrast borders
+  [class*="border-"] {
+    border-color: #FFFFFF !important;
+  }
+
+  // High contrast shadows - Remove or enhance
+  [class*="shadow"] {
+    box-shadow: 0 0 0 3px #FFFFFF !important;
+  }
+
+  // High contrast links
+  a {
+    color: #FFFF00 !important;
+    text-decoration: underline;
+    font-weight: 700;
+
+    &:hover {
+      color: #FFFFFF !important;
+      background-color: #FFFF00 !important;
+      padding: 2px 4px;
+    }
+  }
+
+  // High contrast focus states - Enhanced
+  *:focus-visible {
+    outline: 4px solid #FFFF00 !important;
+    outline-offset: 4px;
+    box-shadow: 0 0 0 8px rgba(255, 255, 0, 0.3) !important;
+  }
+
+  // High contrast disabled states
+  button:disabled,
+  input:disabled {
+    background-color: #333333 !important;
+    color: #999999 !important;
+    border-color: #666666 !important;
+    cursor: not-allowed;
+  }
+
+  // High contrast for specific components
+  [role="dialog"],
+  [role="alertdialog"] {
+    background-color: #000000 !important;
+    border: 3px solid #FFFF00 !important;
+  }
+
+  // High contrast navigation
+  nav {
+    background-color: #000000 !important;
+    border-bottom: 3px solid #FFFFFF !important;
+  }
+
+  // High contrast footer
+  footer {
+    background-color: #000000 !important;
+    border-top: 3px solid #FFFFFF !important;
+  }
+
+  // High contrast gradients - Replace with solid colors
+  [class*="gradient"] {
+    background-image: none !important;
+    background-color: #000000 !important;
+  }
+
+  // Images in high contrast - Add border for visibility
+  img {
+    border: 2px solid #FFFFFF !important;
+    filter: contrast(1.2);
+  }
+
+  // High contrast for success/error states
+  [class*="success"],
+  [class*="bg-green"] {
+    background-color: #00FF00 !important;
+    color: #000000 !important;
+    border: 2px solid #FFFFFF !important;
+  }
+
+  [class*="error"],
+  [class*="bg-red"],
+  [class*="destructive"] {
+    background-color: #FF0000 !important;
+    color: #FFFFFF !important;
+    border: 2px solid #FFFFFF !important;
+    font-weight: 700 !important;
+  }
+}
+

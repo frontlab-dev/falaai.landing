@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Documentação Fala.AI</title>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <style>
+    :root {
+      --theme-color: #3b82f6;
+      --theme-color-dark: #2563eb;
+    }
+
+    main section.content {
+        overflow: auto;
+    }
+    
+    .sidebar {
+      background-color: #f8fafc;
+    }
+    
+    .sidebar .app-name-link img {
+      max-width: 200px;
+      margin-bottom: 1rem;
+    }
+    
+    .markdown-section code {
+      background-color: #f1f5f9;
+      padding: 0.2em 0.4em;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    
+    .markdown-section pre {
+      background-color: #1e293b;
+      border-radius: 6px;
+    }
+    
+    .markdown-section pre code {
+      background-color: transparent;
+      color: #e2e8f0;
+    }
+    
+    .markdown-section h1 {
+      color: #1e293b;
+      border-bottom: 3px solid var(--theme-color);
+      padding-bottom: 0.5rem;
+    }
+    
+    .markdown-section h2 {
+      color: #334155;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.3rem;
+      margin-top: 2rem;
+    }
+    
+    .markdown-section h3 {
+      color: #475569;
+    }
+    
+    .markdown-section blockquote {
+      border-left: 4px solid var(--theme-color);
+      background-color: #f1f5f9;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    
+    .markdown-section table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1rem 0;
+    }
+    
+    .markdown-section table th,
+    .markdown-section table td {
+      border: 1px solid #e2e8f0;
+      padding: 0.75rem;
+      text-align: left;
+    }
+    
+    .markdown-section table th {
+      background-color: #f8fafc;
+      font-weight: 600;
+    }
+    
+    .markdown-section table tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+    
+    /* Botão de Tema */
+    .theme-toggle {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 1000;
+      background-color: var(--theme-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 56px;
+      height: 56px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      padding: 0;
+    }
+    
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+    
+    .theme-toggle:focus {
+      outline: 3px solid var(--theme-color);
+      outline-offset: 2px;
+    }
+    
+    .theme-toggle:active {
+      transform: scale(0.95);
+    }
+    
+    .theme-toggle svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+    
+    /* Modo de Alto Contraste */
+    body.high-contrast {
+      filter: contrast(1.2);
+    }
+    
+    body.high-contrast .sidebar {
+      background-color: #000000 !important;
+      color: #ffffff !important;
+      border-right: 2px solid #ffffff !important;
+    }
+    
+    body.high-contrast .sidebar ul li a {
+      color: #ffffff !important;
+    }
+    
+    body.high-contrast .sidebar ul li a:hover,
+    body.high-contrast .sidebar ul li.active > a {
+      background-color: #ffffff !important;
+      color: #000000 !important;
+    }
+    
+    body.high-contrast .markdown-section {
+      background-color: #ffffff !important;
+      color: #000000 !important;
+    }
+    
+    body.high-contrast .markdown-section h1,
+    body.high-contrast .markdown-section h2,
+    body.high-contrast .markdown-section h3,
+    body.high-contrast .markdown-section h4,
+    body.high-contrast .markdown-section h5,
+    body.high-contrast .markdown-section h6 {
+      color: #000000 !important;
+      border-color: #000000 !important;
+    }
+    
+    body.high-contrast .markdown-section p,
+    body.high-contrast .markdown-section li,
+    body.high-contrast .markdown-section td {
+      color: #000000 !important;
+    }
+    
+    body.high-contrast .markdown-section code {
+      background-color: #000000 !important;
+      color: #ffffff !important;
+      border: 2px solid #000000 !important;
+      padding: 0.2em 0.4em;
+    }
+    
+    body.high-contrast .markdown-section pre {
+      background-color: #000000 !important;
+      border: 2px solid #000000 !important;
+    }
+    
+    body.high-contrast .markdown-section pre code {
+      color: #ffffff !important;
+    }
+    
+    body.high-contrast .markdown-section blockquote {
+      background-color: #000000 !important;
+      color: #ffffff !important;
+      border-left: 4px solid #ffffff !important;
+    }
+    
+    body.high-contrast .markdown-section table {
+      border: 2px solid #000000 !important;
+    }
+    
+    body.high-contrast .markdown-section table th,
+    body.high-contrast .markdown-section table td {
+      border: 2px solid #000000 !important;
+      background-color: #ffffff !important;
+      color: #000000 !important;
+    }
+    
+    body.high-contrast .markdown-section table th {
+      background-color: #000000 !important;
+      color: #ffffff !important;
+    }
+    
+    body.high-contrast .markdown-section table tr:nth-child(even) {
+      background-color: #f0f0f0 !important;
+    }
+    
+    body.high-contrast .markdown-section a {
+      color: #0000ff !important;
+      text-decoration: underline !important;
+    }
+    
+    body.high-contrast .markdown-section a:visited {
+      color: #800080 !important;
+    }
+    
+    body.high-contrast .markdown-section a:hover,
+    body.high-contrast .markdown-section a:focus {
+      background-color: #ffff00 !important;
+      color: #000000 !important;
+      outline: 3px solid #000000 !important;
+    }
+    
+    body.high-contrast .theme-toggle {
+      background-color: #000000 !important;
+      color: #ffffff !important;
+      border: 3px solid #ffffff !important;
+    }
+    
+    body.high-contrast .theme-toggle:hover {
+      background-color: #ffffff !important;
+      color: #000000 !important;
+    }
+    
+    body.high-contrast .theme-toggle:focus {
+      outline: 3px solid #ffffff !important;
+      outline-offset: 2px;
+    }
+    
+    /* Respeitar preferência do sistema */
+    @media (prefers-contrast: high) {
+      body:not(.high-contrast-disabled) {
+        filter: contrast(1.2);
+      }
+    }
+  </style>
+</head>
+<body>
+  <button 
+    class="theme-toggle" 
+    id="themeToggle"
+    aria-label="Alternar tema"
+    title="Alternar Tema (T)"
+  >
+    <svg aria-hidden="true" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+    </svg>
+  </button>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: '📚 Documentação Fala.AI',
+      repo: '',
+      loadSidebar: true,
+      subMaxLevel: 3,
+      auto2top: true,
+      coverpage: false,
+      homepage: 'README.md',
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: 'Pesquisar na documentação...',
+        noData: 'Nenhum resultado encontrado',
+        depth: 6
+      },
+      pagination: {
+        previousText: '← Anterior',
+        nextText: 'Próximo →',
+        crossChapter: true,
+        crossChapterText: true
+      },
+      plugins: [
+        function(hook, vm) {
+          hook.beforeEach(function(html) {
+            // Adiciona emoji support melhorado
+            return html;
+          });
+          
+          hook.afterEach(function(html, next) {
+            // Melhora a renderização de blocos de código
+            next(html);
+          });
+          
+          hook.doneEach(function() {
+            // Garantir que o botão de tema esteja configurado após cada navegação
+            if (window.themeManager && window.themeManager.setupThemeToggle) {
+              setTimeout(function() {
+                window.themeManager.setupThemeToggle();
+              }, 100);
+            }
+          });
+          
+          hook.mounted(function() {
+            // Configurar botão quando Docsify estiver montado
+            if (window.themeManager && window.themeManager.setupThemeToggle) {
+              setTimeout(function() {
+                window.themeManager.setupThemeToggle();
+              }, 300);
+            }
+          });
+        }
+      ]
+    }
+    
+    // Sistema de Temas (Claro e Alto Contraste)
+    window.themeManager = (function() {
+      const STORAGE_KEY = 'docsify-theme';
+      const THEMES = ['light', 'high-contrast'];
+      let currentThemeIndex = 0;
+      let toggleButton = null;
+      const body = document.body;
+      
+      // Ícones SVG para cada tema
+      const themeIcons = {
+        light: '<svg aria-hidden="true" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/></svg>',
+        'high-contrast': '<svg aria-hidden="true" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/><path d="M12 9a3 3 0 100 6 3 3 0 000-6z" fill="currentColor" opacity="0.3"/></svg>'
+      };
+      
+      const themeLabels = {
+        light: 'Tema Claro',
+        'high-contrast': 'Alto Contraste'
+      };
+      
+      // Aplicar tema
+      function applyTheme(theme) {
+        // Remover todas as classes de tema
+        body.classList.remove('high-contrast');
+        
+        // Aplicar tema específico
+        if (theme === 'high-contrast') {
+          body.classList.add('high-contrast');
+        }
+        
+        // Atualizar botão
+        if (toggleButton) {
+          toggleButton.innerHTML = themeIcons[theme];
+          toggleButton.setAttribute('title', themeLabels[theme] + ' (T)');
+          toggleButton.setAttribute('aria-label', 'Tema atual: ' + themeLabels[theme] + '. Clique para alternar');
+        }
+        
+        // Salvar preferência
+        localStorage.setItem(STORAGE_KEY, theme);
+      }
+      
+      // Alternar para próximo tema
+      function nextTheme() {
+        currentThemeIndex = (currentThemeIndex + 1) % THEMES.length;
+        const nextTheme = THEMES[currentThemeIndex];
+        applyTheme(nextTheme);
+      }
+      
+      // Inicializar tema
+      function initTheme() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        const prefersHighContrast = window.matchMedia && window.matchMedia('(prefers-contrast: high)').matches;
+        
+        let theme = 'light';
+        
+        if (saved && THEMES.includes(saved)) {
+          theme = saved;
+          currentThemeIndex = THEMES.indexOf(saved);
+        } else if (prefersHighContrast) {
+          theme = 'high-contrast';
+          currentThemeIndex = THEMES.indexOf('high-contrast');
+        }
+        
+        applyTheme(theme);
+      }
+      
+      // Inicializar quando o DOM estiver pronto
+      function setupThemeToggle() {
+        toggleButton = document.getElementById('themeToggle');
+        if (!toggleButton) {
+          // Tentar novamente após um pequeno delay se o botão não existir
+          setTimeout(setupThemeToggle, 100);
+          return;
+        }
+        
+        // Aplicar tema inicial apenas na primeira vez
+        if (!toggleButton.hasAttribute('data-initialized')) {
+          initTheme();
+          toggleButton.setAttribute('data-initialized', 'true');
+        }
+        
+        // Remover event listeners anteriores se existirem
+        if (toggleButton.hasAttribute('data-listener-attached')) {
+          const newButton = toggleButton.cloneNode(true);
+          if (toggleButton.parentNode) {
+            toggleButton.parentNode.replaceChild(newButton, toggleButton);
+            toggleButton = newButton;
+          }
+        }
+        
+        // Marcar como configurado e adicionar event listener
+        toggleButton.setAttribute('data-listener-attached', 'true');
+        
+        // Função de clique
+        const clickHandler = function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          nextTheme();
+          return false;
+        };
+        
+        toggleButton.addEventListener('click', clickHandler, true);
+        
+        // Também adicionar como onclick como fallback
+        toggleButton.onclick = clickHandler;
+      }
+      
+      // Atalho de teclado (T para Tema)
+      document.addEventListener('keydown', function(e) {
+        // T (evitar conflito quando em campos de input)
+        if (e.key.toLowerCase() === 't' && !e.ctrlKey && !e.altKey && !e.shiftKey && !e.metaKey) {
+          const target = e.target;
+          if (target.tagName !== 'INPUT' && target.tagName !== 'TEXTAREA' && !target.isContentEditable) {
+            e.preventDefault();
+            nextTheme();
+          }
+        }
+      });
+      
+      // Aplicar tema imediatamente se já estiver salvo
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved && THEMES.includes(saved)) {
+        const prefersHighContrast = window.matchMedia && window.matchMedia('(prefers-contrast: high)').matches;
+        
+        let theme = saved;
+        if (prefersHighContrast && !saved) {
+          theme = 'high-contrast';
+        }
+        
+        if (theme === 'high-contrast') {
+          body.classList.add('high-contrast');
+        }
+      }
+      
+      // Inicializar quando o DOM estiver pronto
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupThemeToggle);
+      } else {
+        // Se já estiver carregado, tentar imediatamente e depois de um pequeno delay
+        setupThemeToggle();
+        setTimeout(setupThemeToggle, 500);
+      }
+      
+      // Observar mudanças na preferência do sistema
+      if (window.matchMedia) {
+        // Preferência de contraste
+        const contrastQuery = window.matchMedia('(prefers-contrast: high)');
+        if (contrastQuery.addEventListener) {
+          contrastQuery.addEventListener('change', function(e) {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (!saved && e.matches) {
+              applyTheme('high-contrast');
+              currentThemeIndex = THEMES.indexOf('high-contrast');
+            }
+          });
+        }
+      }
+      
+      // Retornar API pública
+      return {
+        nextTheme: nextTheme,
+        applyTheme: applyTheme,
+        initTheme: initTheme,
+        setupThemeToggle: setupThemeToggle
+      };
+    })();
+  </script>
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- Plugins -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+</body>
+</html>
+

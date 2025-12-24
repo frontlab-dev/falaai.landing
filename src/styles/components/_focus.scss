@@ -1,0 +1,27 @@
+// ========================================
+// FOCUS STYLES
+// Estilos de foco para navegação por teclado - WCAG 2.4.7
+// Usando BEM para organização
+// ========================================
+
+// Enhanced focus styles for keyboard navigation
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #50B1CF;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+// High contrast focus for important CTAs
+button.bg-\[--fala-primary-blue-dark\]:focus-visible,
+button.bg-\[\#0D5FD9\]:focus-visible,
+button.bg-\[\#418BFF\]:focus-visible {
+  outline: 3px solid #1A1A1A;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px rgba(65, 139, 255, 0.3);
+}
+

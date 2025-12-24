@@ -1,13 +1,29 @@
 # 📚 Documentação do Projeto Fala.AI
 
-Esta pasta contém toda a documentação do projeto.
+Bem-vindo à documentação completa do projeto **Fala.AI Landing Page**!
+
+Esta documentação fornece uma visão abrangente da arquitetura, padrões de código, estilos e diretrizes do projeto.
+
+## 🚀 Início Rápido
+
+Para começar a trabalhar no projeto, consulte a [Documentação Principal do Projeto](PROJECT_README.md) que contém informações sobre instalação, tecnologias utilizadas e estrutura básica.
 
 ## 📄 Documentos Disponíveis
 
-- **[PROJECT_README.md](./PROJECT_README.md)** - Documentação principal do projeto
-- **[ACCESSIBILITY.md](./ACCESSIBILITY.md)** - Guia completo de acessibilidade (WCAG 2.1 AA/AAA)
-- **[Attributions.md](./Attributions.md)** - Atribuições de recursos utilizados
-- **[Guidelines.md](./Guidelines.md)** - Diretrizes e padrões do projeto
+### 📖 Documentação Principal
+- **[Visão Geral do Projeto](PROJECT_README.md)** - Documentação principal do projeto, tecnologias e features
+- **[Arquitetura](ARCHITECTURE.md)** - Arquitetura e padrões de código (Container/Presentation Pattern)
+- **[Guia de Estilos](STYLES.md)** - Guia completo de estilos SCSS com metodologia BEM
+- **[Acessibilidade](ACCESSIBILITY.md)** - Guia completo de acessibilidade (WCAG 2.1 AA/AAA)
+- **[Diretrizes](Guidelines.md)** - Diretrizes e padrões do projeto
+
+### 🔧 Guias Técnicos
+- **[Migração](MIGRATION.md)** - Guia de migração e atualizações
+- **[Resumo](SUMMARY.md)** - Resumo da reorganização do projeto
+- **[Limpeza](CLEANUP.md)** - Documentação de limpeza e otimização
+
+### 📝 Outros
+- **[Atribuições](Attributions.md)** - Atribuições de recursos utilizados no projeto
 
 ## 🏗️ Estrutura do Projeto
 
@@ -29,6 +45,10 @@ src/
 │   └── ...              # Componentes contextuais e utilitários
 ├── containers/          # Componentes container (lógica)
 ├── hooks/               # Hooks customizados
+├── styles/              # Estilos SCSS organizados com BEM
+│   ├── base/            # Variáveis, tipografia, reset
+│   ├── components/      # Estilos de componentes
+│   └── utilities/       # Utilitários
 └── ...
 ```
 
@@ -67,6 +87,33 @@ export function useHeroLogic() {
   return { onCTAClick, animationsEnabled };
 }
 ```
+
+### Estilos SCSS com BEM
+```scss
+// src/styles/components/_novo-componente.scss
+.novo-componente {
+  &__container {
+    // estilos do container
+  }
+  
+  &__titulo {
+    // estilos do título
+  }
+  
+  &--variante {
+    // modificador
+  }
+}
+```
+
+## 🎨 Estilização
+
+O projeto utiliza uma abordagem híbrida:
+
+- **Tailwind CSS v4**: Classes utilitárias para desenvolvimento rápido
+- **SCSS com BEM**: Organização modular para componentes complexos
+
+Consulte [STYLES.md](./STYLES.md) para mais detalhes sobre a estrutura de estilos.
 
 ## 📖 Leia Mais
 

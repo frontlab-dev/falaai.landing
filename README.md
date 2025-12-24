@@ -17,14 +17,32 @@ npm run build
 
 ## 📚 Documentação
 
-Toda a documentação do projeto está na pasta [`docs/`](./docs/):
+A documentação do projeto está disponível em formato interativo usando **Docsify**.
 
-- **[README.md](./docs/README.md)** - Índice da documentação
-- **[PROJECT_README.md](./docs/PROJECT_README.md)** - Documentação completa do projeto
-- **[ARCHITECTURE.md](./docs/ARCHITECTURE.md)** - Arquitetura e padrões de código
-- **[ACCESSIBILITY.md](./docs/ACCESSIBILITY.md)** - Guia de acessibilidade (WCAG 2.1 AA/AAA)
-- **[Attributions.md](./docs/Attributions.md)** - Atribuições de recursos
-- **[Guidelines.md](./docs/Guidelines.md)** - Diretrizes do projeto
+### 🚀 Visualizar Documentação
+
+```bash
+# Instalar dependências (se ainda não instalou)
+npm install
+
+# Iniciar servidor de documentação (abre automaticamente no navegador)
+npm run docs
+
+# Ou iniciar sem abrir automaticamente
+npm run docs:dev
+```
+
+A documentação estará disponível em `http://localhost:3001`
+
+### 📄 Documentos Disponíveis
+
+- **[Visão Geral do Projeto](./docs/PROJECT_README.md)** - Documentação completa do projeto
+- **[Arquitetura](./docs/ARCHITECTURE.md)** - Arquitetura e padrões de código
+- **[Acessibilidade](./docs/ACCESSIBILITY.md)** - Guia de acessibilidade (WCAG 2.1 AA/AAA)
+- **[Estilos](./docs/STYLES.md)** - Guia de estilos SCSS com BEM
+- **[Diretrizes](./docs/Guidelines.md)** - Diretrizes do projeto
+- **[Migração](./docs/MIGRATION.md)** - Guia de migração
+- **[Atribuições](./docs/Attributions.md)** - Atribuições de recursos
 
 ## 🏗️ Arquitetura
 
@@ -55,7 +73,8 @@ src/
 - **React** - Framework principal
 - **TypeScript** - Tipagem estática
 - **Motion/React** - Animações
-- **Tailwind CSS v4** - Estilização
+- **Tailwind CSS v4** - Estilização utilitária
+- **SCSS/Sass** - Estilização com metodologia BEM
 - **Shadcn/ui** - Componentes UI
 - **Vite** - Build tool
 
